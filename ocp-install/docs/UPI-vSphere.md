@@ -659,7 +659,7 @@ After the template deploys, deploy a VM for a machine in the cluster.
 
 - After master provisioned, edit this to schedule pod on this node
 ```sh
-oc edit node 
+$ oc edit node 
 ```
 ```yml
 - effect: NoSchedule
@@ -671,7 +671,7 @@ oc edit node
 - Do same thing with worker, edit this to schedule pod on this node
 - Approve to join node
 ```yml
-oc get csr
-oc get csr -o go-template='{{range .items}}{{if not .status}}{{.metadata.name}}{{"\n"}}{{end}}{{end}}' | xargs --no-run-if-empty oc adm certificate approves
+$ oc get csr
+$ oc get csr -o go-template='{{range .items}}{{if not .status}}{{.metadata.name}}{{"\n"}}{{end}}{{end}}' | xargs --no-run-if-empty oc adm certificate approves
 ```
 
